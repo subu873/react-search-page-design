@@ -1,6 +1,7 @@
 import React from 'react';
 import DatetimeRangePicker from 'react-datetime-range-picker';
 import moment from "moment";
+import SearchListing from "./searchListing";
 
 export default class SearchFiler extends React.Component {
   
@@ -205,7 +206,7 @@ export default class SearchFiler extends React.Component {
                     </div>
                   }
                   
-                  <div className="btn-block mt-5">
+                  <div className="btn-block">
                     <button className="btn btn-success btn-block submit-btn"
                             onClick={this.submitRequirement}>
                       Submit
@@ -222,216 +223,7 @@ export default class SearchFiler extends React.Component {
                 </p>
                 
                 <div className="row">
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="card menu-card">
-                      <div className="image-block">
-                        <img src={require('../../assets/image-1.jpg')}
-                             className="menu-image"
-                             alt="Image 1"/>
-                        <div className="content-block">
-                          <h3 className="menu-item-name">
-                            Sagar Ratna
-                          </h3>
-                          <p className="location-text">
-                            <img src={require('../../assets/location.png')}
-                                 className="location-icon"
-                                 alt="Image 1"/>
-                            Sector 48 Gurgaon
-                          </p>
-                          <p className="price-text">Rs. 450/-</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <SearchListing/>
                 </div>
               
               </div>
