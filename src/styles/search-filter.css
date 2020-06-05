@@ -115,3 +115,43 @@ input[type="checkbox"], input[type="radio"] {
     margin-right: 5px;
     margin-bottom: 10px;
 }
+.filterBlockStart{
+    margin-bottom: 65px;
+}
+.submit-btn{
+    margin-bottom: 25px;
+}
+input.form-control{
+    margin-bottom: 25px;
+}
+.filter-selected {
+    cursor: pointer;
+    font-size: 12px;
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 100%, .5);
+    border-radius: 3px;
+    margin: 2px 5px 2px 0;
+    overflow: hidden;
+    transition: background-color .1s;
+    max-width: 200px;
+    padding: 4px 8px;
+}
+.filter-close {
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: 4px;
+    float: left;
+}
+.filter-selected .filter-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: bottom;
+    margin-left: 5px;
+    max-width: 90%;
+    font-size: 14px;
+    font-weight: 600;
+}
+.filter-selected, .filter-selected .filter-close, .filter-selected ._3UZZGt, .filter-selected, .filter-selected .filter-close, .filter-selected .filter-text {
+    display: inline-block;
+}

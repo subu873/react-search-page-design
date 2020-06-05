@@ -1,5 +1,6 @@
 import React from 'react';
 import DatetimeRangePicker from 'react-datetime-range-picker';
+import moment from "moment";
 
 export default class SearchFiler extends React.Component {
   
@@ -7,14 +8,18 @@ export default class SearchFiler extends React.Component {
     super(props);
     this.state = {
       members: 2,
-      gender: "Male", // used for gender
+      gender: "", // used for gender
       breakfast: false,
       dinner: false,
       bothMeal: false,
+      selectedFiltersShow: true,
+      startTime: '',
+      endTime: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.onChangeGenderValue = this.onChangeGenderValue.bind(this);
     this.handleChangeMember = this.handleChangeMember.bind(this);
+    this.handlerTime = this.handlerTime.bind(this);
   }
   
   handleInputChange(event) {
@@ -34,13 +39,27 @@ export default class SearchFiler extends React.Component {
     this.setState({members: event.target.value});
   }
   
+  handlerTime(event) {
+    let startTime = moment(event.start).format("hh:mm a");
+    let endTime = moment(event.end).format("hh:mm a");
+    this.setState({startTime: startTime});
+    this.setState({endTime: endTime});
+  }
+  
   submitRequirement = () => {
     if (this.state.breakfast === false && this.state.dinner === false && this.state.bothMeal === false) {
       alert("Please Select Meal Type");
+      return false;
     }
+    
+    if (this.state.gender === '') {
+      alert("No Gender Selected");
+      return false;
+    }
+    
     console.log("Members", this.state.members);
     console.log("Gender", this.state.gender);
-    
+    this.setState({selectedFiltersShow: true})
   };
   
   render() {
@@ -50,9 +69,56 @@ export default class SearchFiler extends React.Component {
         <div className="container searchPage">
           <div className="col-md-12">
             <div className="row">
-              <div className="col-md-3">
+              <div className="col-md-3 filterBlockStart">
                 <div className="card">
                   <h2 className="heading-filter">Filters</h2>
+                  
+                  {(this.state.selectedFiltersShow) ?
+                    <div className="selected-filters-block">
+                      
+                      <div className="filter-selected">
+                        <div className="filter-close">✕</div>
+                        <div className="filter-text">Start Time : {this.state.startTime}</div>
+                      </div>
+                      <div className="filter-selected">
+                        <div className="filter-close">✕</div>
+                        <div className="filter-text">End Time : {this.state.endTime}</div>
+                      </div>
+                      
+                      {this.state.gender != '' ?
+                        <div className="filter-selected">
+                          <div className="filter-close">✕</div>
+                          <div className="filter-text">{this.state.gender}</div>
+                        </div>
+                        : null}
+                      {this.state.members != '' ?
+                        <div className="filter-selected">
+                          <div className="filter-close">✕</div>
+                          <div className="filter-text">Members : {this.state.members}</div>
+                        </div>
+                        : null}
+                      
+                      {this.state.breakfast ?
+                        <div className="filter-selected">
+                          <div className="filter-close">✕</div>
+                          <div className="filter-text">Breakfast</div>
+                        </div>
+                        : null}
+                      {this.state.dinner ?
+                        <div className="filter-selected">
+                          <div className="filter-close">✕</div>
+                          <div className="filter-text">Dinner</div>
+                        </div>
+                        : null}
+                      {this.state.bothMeal ?
+                        <div className="filter-selected">
+                          <div className="filter-close">✕</div>
+                          <div className="filter-text">Both Meal</div>
+                        </div>
+                        : null}
+                    </div>
+                    : null}
+                  
                   <hr className="filter-hr"/>
                   
                   <h6 className="filter-heading">
@@ -114,33 +180,37 @@ export default class SearchFiler extends React.Component {
                   </label>
                   
                   <hr className="filter-hr"/>
-                  <h6 className="filter-heading">
-                    Preferred Time Slot
-                  </h6>
                   
-                  <div className="row btn btn-group">
-                    <button className="btn btn-primary btn-group-sm mealButton">
-                      {this.state.breakfast ? "BreakFast" : null}
-                    </button>
-                    <button className="btn btn-primary btn-group-sm mealButton">
-                      {this.state.dinner ? "Dinner" : null}
-                    </button>
-                    <button className="btn btn-primary btn-group-sm mealButton">
-                      {this.state.bothMeal ? "Both Meal" : null}
-                    </button>
-                  </div>
-                  
-                  
-                  <DatetimeRangePicker dateFormat={false}
-                    onChange={this.handler}/>
+                  {this.state.breakfast === false && this.state.dinner === false && this.state.bothMeal === false ? null :
+                    <div>
+                      <h6 className="filter-heading">
+                        Preferred Time Slot
+                      </h6>
+                      
+                      <div className="row btn btn-group">
+                        <button className="btn btn-primary btn-group-sm mealButton">
+                          {this.state.breakfast ? "BreakFast" : null}
+                        </button>
+                        <button className="btn btn-primary btn-group-sm mealButton">
+                          {this.state.dinner ? "Dinner" : null}
+                        </button>
+                        <button className="btn btn-primary btn-group-sm mealButton">
+                          {this.state.bothMeal ? "Both Meal" : null}
+                        </button>
+                      </div>
+                      
+                      <DatetimeRangePicker
+                        dateFormat={false}
+                        onChange={this.handlerTime}/>
+                    </div>
+                  }
                   
                   <div className="btn-block mt-5">
-                    <button className="btn btn-success btn-block"
+                    <button className="btn btn-success btn-block submit-btn"
                             onClick={this.submitRequirement}>
                       Submit
                     </button>
                   </div>
-                
                 </div>
               </div>
               <div className="col-md-9">
