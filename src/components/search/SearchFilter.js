@@ -12,9 +12,9 @@ export default class SearchFiler extends React.Component {
       breakfast: false,
       dinner: false,
       bothMeal: false,
-      selectedFiltersShow: true,
-      startTime: '',
-      endTime: ''
+      selectedFiltersShow: false,
+      startTime: moment().subtract(1, 'days').format('hh:mm a'),
+      endTime: moment().subtract(1, 'days').format('hh:mm a')
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.onChangeGenderValue = this.onChangeGenderValue.bind(this);
